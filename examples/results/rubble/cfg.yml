@@ -1,0 +1,80 @@
+antialiased: false
+app_embed_dim: 16
+app_opt: false
+app_opt_lr: 0.001
+app_opt_reg: 1.0e-06
+batch_size: 1
+bilateral_grid_shape: !!python/tuple
+- 16
+- 16
+- 8
+camera_model: pinhole
+ckpt: null
+compression: null
+data_dir: /arc-share/3_Datasets/3DGS/mill19/rubble-pixsfm
+data_factor: 4
+depth_lambda: 0.01
+depth_loss: false
+disable_video: false
+disable_viewer: true
+eval_steps:
+- 200000
+far_plane: 10000000000.0
+global_scale: 1.0
+init_extent: 3.0
+init_num_pts: 100000
+init_opa: 0.1
+init_ply: false
+init_scale: 1.0
+init_type: sfm
+lpips_net: alex
+max_steps: 200000
+near_plane: 0.01
+normalize_world_space: true
+opacity_reg: 0.0
+packed: true
+patch_size: null
+ply_steps:
+- 200000
+port: 8080
+pose_noise: 0.0
+pose_opt: false
+pose_opt_lr: 1.0e-05
+pose_opt_reg: 1.0e-06
+position_lr: 1.6e-05
+random_bkgd: false
+render_traj_path: interp
+result_dir: ./results/rubble
+save_ply: false
+save_steps:
+- 200000
+scale_reg: 0.0
+scaling_lr: 0.005
+sh_degree: 3
+sh_degree_interval: 1000
+sparse_grad: false
+ssim_lambda: 0.2
+steps_scaler: 1.0
+strategy: !!python/object:gsplat.strategy.default.DefaultStrategy
+  absgrad: false
+  grow_grad2d: 0.0002
+  grow_scale2d: 0.05
+  grow_scale3d: 0.01
+  key_for_gradient: means2d
+  pause_refine_after_reset: 0
+  prune_opa: 0.005
+  prune_scale2d: 0.15
+  prune_scale3d: 0.1
+  refine_every: 100
+  refine_scale2d_stop_iter: 0
+  refine_start_iter: 500
+  refine_stop_iter: 15000
+  reset_every: 3000
+  revised_opacity: false
+  verbose: true
+tb_every: 100
+tb_save_image: false
+test_after: -1
+test_every: 83
+use_bilateral_grid: false
+visible_adam: false
