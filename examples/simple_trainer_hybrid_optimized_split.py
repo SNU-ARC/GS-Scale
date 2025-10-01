@@ -407,8 +407,6 @@ def cpu_optimizer_parallel(
     beta2: float,
     eps: float
 ):
-#    from torch.profiler import profile, record_function, ProfilerActivity
-#    with profile(on_trace_ready=torch.profiler.tensorboard_trace_handler('./log/temp')) as p:
     with torch.no_grad():
         # CPU Optimizer with deferred update
         adam_deferred_update(weight1, grad1, opt1_1, opt1_2, update_ids, counter, step, lr1, beta1, beta2, eps) 
@@ -1432,9 +1430,6 @@ class Runner:
         counter = torch.zeros(self.splats["opacities"].shape[0], dtype=torch.int8, device="cpu")  # Initial counter
 
         ########## Main Loop ##########
-#        from torch.profiler import profile, record_function, ProfilerActivity
-#        with profile(on_trace_ready=torch.profiler.tensorboard_trace_handler('./log/temp')) as p:
-#        with profile(schedule=torch.profiler.schedule(wait=80, warmup=10, active=10), on_trace_ready=torch.profiler.tensorboard_trace_handler('./log/rubble_hybrid_opt3')) as p:
         for step in pbar:
             # First iteration is performed before entering the loop.
             if step == 0:

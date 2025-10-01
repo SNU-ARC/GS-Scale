@@ -579,10 +579,6 @@ class Runner:
         global_tic = time.time()
         pbar = tqdm.tqdm(range(init_step, max_steps))
         for step in pbar:
-#            if step == 29950:
-#                torch.cuda.memory._record_memory_history(max_entries=100000)
-#            if step == 15000:
-#                exit(0)
             if not cfg.disable_viewer:
                 while self.viewer.state.status == "paused":
                     time.sleep(0.01)
@@ -721,10 +717,6 @@ class Runner:
             #         f"{self.render_dir}/train_rank{self.world_rank}.png",
             #         (canvas * 255).astype(np.uint8),
             #     )
-
-#            if step > 29950:
-#                timestamp = datetime.now().strftime(TIME_FORMAT_STR)
-#                torch.cuda.memory._dump_snapshot(f"gsplat_{timestamp}.html")
 
             if world_rank == 0 and cfg.tb_every > 0 and step % cfg.tb_every == 0:
                 mem = torch.cuda.max_memory_allocated() / 1024**3
