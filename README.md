@@ -22,28 +22,28 @@ Download the dataset and organize image/colmap folder as follows.
 │   ├── colmap_results
 │   │   ├── mill19
 │   │   │   ├── rubble-pixsfm
-|   |   |   |   ├── images_4
-|   |   |   |   ├── sparse
+│   │   │   │   ├── images_4
+│   │   │   │   ├── sparse
 │   │   │   │   │   ├── 0
 │   │   │   │   │   │   ├── cameras.bin
 │   │   │   │   │   │   ├── points3D.bin
 │   │   │   │   │   │   ├── images.bin
 │   │   │   ├── building-pixsfm
-|   |   |   |   ├── images_4
-|   |   |   |   ├── sparse
+│   │   │   │   ├── images_4
+│   │   │   │   ├── sparse
 │   │   ├── GauU_Scene
 │   │   │   ├── LFLS
-|   |   |   |   ├── images_3.4175
-|   |   |   |   ├── sparse
+│   │   │   │   ├── images_3.4175
+│   │   │   │   ├── sparse
 │   │   │   ├── SZTU
-|   |   |   |   ├── images_3.4175
-|   |   |   |   ├── sparse
+│   │   │   │   ├── images_3.4175
+│   │   │   │   ├── sparse
 │   │   │   ├── SZIIT
-|   |   |   |   ├── images_3.4175
-|   |   |   |   ├── sparse
+│   │   │   │   ├── images_3.4175
+│   │   │   │   ├── sparse
 │   │   ├── MatrixCity
 │   │   │   ├── aerial
-|   |   |   |   ├── images_1.2
+│   │   │   │   ├── images_1.2
 │   │   │   │   ├── sparse
 │   │   │   │   │   ├── 0
 │   │   │   │   │   │   ├── cameras.bin
@@ -56,16 +56,16 @@ Download the dataset and organize image/colmap folder as follows.
 #### Mill19 (Rubble, Building)
 Download dataset [Rubble](https://storage.cmusatyalab.org/mega-nerf-data/rubble-pixsfm.tgz) and [Building](https://storage.cmusatyalab.org/mega-nerf-data/building-pixsfm.tgz). Then, downsample images with downsampling rate 4, following instructions in [CityGaussian](https://github.com/Linketic/CityGaussian/blob/main/doc/data_preparation.md) repo.
 
-We downloaded preprocesed colmap from [CityGaussian](https://github.com/Linketic/CityGaussian/blob/main/doc/data_preparation.md). We merge train and test sets in a single directory for both scenes and colmaps. (We do this to use "test\_every".) We provide merged colmap files through Google Drive [link](https://drive.google.com/drive/folders/1bCsIhR-_MFQ71uKNlg6JTROmCc290M4I).
+We downloaded preprocesed colmap from [CityGaussian](https://github.com/Linketic/CityGaussian/blob/main/doc/data_preparation.md). We merge train and test sets in a single directory for both images and colmap. (We do this to use "test\_every".) We provide merged colmap files through Google Drive [link](https://drive.google.com/drive/folders/1bCsIhR-_MFQ71uKNlg6JTROmCc290M4I).
 
 #### GauU Scene (SZTU, LFLS, SZIIT)
 Download dataset and colmap from [GauU Scene](https://saliteta.github.io/CUHKSZ_SMBU) and downsample scenes with downsampling rate 3.4175.
 We use test\_every=10 and downsampling rate 3.4175 following CityGaussian.
 
 #### MatrixCity (Aerial)
-Download dataset [MatrixCity](https://huggingface.co/datasets/BoDai/MatrixCity/tree/main/small_city) and downsample scenes with downsampling rate 1.2 following [CityGaussian](https://github.com/Linketic/CityGaussian/blob/main/doc/data_preparation.md). We merge images from train and test set to use "test\_after=5620", which means that scenes with ids greater than 5620 are used for test sets. You will need to rename the image files.
+Download dataset [MatrixCity](https://huggingface.co/datasets/BoDai/MatrixCity/tree/main/small_city) and downsample scenes with downsampling rate 1.2 following CityGaussian. We merge images from train and test set to use "test\_after=5620", which means that scenes with ids greater than 5620 are used for test sets. You will need to rename the image files.
 
-For Gaussian initialization, you can either use initial point cloud from ground truth depth (matrixcity\_point\_cloud\_ds20.zip [link](https://huggingface.co/datasets/BoDai/MatrixCity/tree/main/small_city_pointcloud)) or use colmap from [CityGaussian](https://github.com/Linketic/CityGaussian/blob/main/doc/data_preparation.md) repo. We use point cloud from ground truth depth for our experiments. You may change "init\_ply" option to False to use colmap. We provide both files through Googld Drive [link](https://drive.google.com/drive/folders/1bCsIhR-_MFQ71uKNlg6JTROmCc290M4I).
+For Gaussian initialization, you can either use initial point cloud from ground truth depth (matrixcity\_point\_cloud\_ds20.zip [link](https://huggingface.co/datasets/BoDai/MatrixCity/tree/main/small_city_pointcloud)) or use colmap from [CityGaussian](https://github.com/Linketic/CityGaussian/blob/main/doc/data_preparation.md) repo. We use point cloud from ground truth depth for our experiments. You may change "init\_ply" option to False to use colmap. We provide both files through Google Drive [link](https://drive.google.com/drive/folders/1bCsIhR-_MFQ71uKNlg6JTROmCc290M4I).
 
 ## Experiments
 #### GPU-Only (w/o host offloading)
