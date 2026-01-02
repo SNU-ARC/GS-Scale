@@ -277,9 +277,8 @@ def create_splats_with_optimizers(
     optimizers = {
         name: optimizer_class(
             [{"params": splats[name], "lr": lr * math.sqrt(BS), "name": name}],
-            eps=1e-15 / math.sqrt(BS),
-            # TODO: check betas logic when BS is larger than 10 betas[0] will be zero.
-            betas=(0.9**BS, 0.999**BS),
+            eps=1e-15 / math.sqrt(BS), 
+            betas=(0.9**BS, 0.999**BS), # Grendel (ICLR'26)
         )
         for name, _, lr in params
     }

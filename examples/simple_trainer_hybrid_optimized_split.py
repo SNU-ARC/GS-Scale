@@ -358,8 +358,7 @@ def create_splats_with_optimizers_in_hostmem(
         name: optimizer_class_gpu(
             [{"params": splats[name], "lr": lr * math.sqrt(BS), "name": name}],
             eps=1e-15 / math.sqrt(BS),
-            # TODO: check betas logic when BS is larger than 10 betas[0] will be zero.
-            betas=(1 - BS * (1 - 0.9), 1 - BS * (1 - 0.999)),
+            betas=(0.9**BS, 0.999**BS), # Grendel (ICLR'26)
         )
         for name, _, lr in params_gpu
     }
@@ -367,8 +366,7 @@ def create_splats_with_optimizers_in_hostmem(
         name: optimizer_class_cpu(
             [{"params": splats[name], "lr": lr * math.sqrt(BS), "name": name}],
             eps=1e-15 / math.sqrt(BS),
-            # TODO: check betas logic when BS is larger than 10 betas[0] will be zero.
-            betas=(1 - BS * (1 - 0.9), 1 - BS * (1 - 0.999)),
+            betas=(0.9**BS, 0.999**BS), # Grendel (ICLR'26)
             fused=True,
 #            adamw_mode=False,
         )
