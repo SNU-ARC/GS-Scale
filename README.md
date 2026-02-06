@@ -104,4 +104,12 @@ Example densification settings are shown in our training script.
 ## Acknowledgment
 This repository is built on [gsplat](https://github.com/nerfstudio-project/gsplat.git) library.
 
-
+## Citation
+```tex
+@inproceedings {gsscale,
+    title={GS-Scale: Unlocking Large-Scale 3D Gaussian Splatting Training via Host Offloading},
+    author={Donghyun Lee and Dawoon Jeong and Jae W. Lee and Hongil Yoon},
+    booktitle = {31st ACM International Conference on Architectural Support for Programming Languages and Operating Systems ({ASPLOS} 26)},
+    year={2026},
+}
+```
