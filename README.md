@@ -101,6 +101,12 @@ We use the default learning rate settings from the original 3DGS paper except `p
 We follow [Grendel](https://arxiv.org/abs/2406.18533)'s methodology to scale up or scale down the Gaussian counts for each scene. See Appendix C.3 for more details.
 Example densification settings are shown in our training script.
 
+#### Dataset Configs
+- `data_factor`: Downsampling rate. Downsampling is performed automatically according to this value.
+- `test_every`: Indicates which image to use as test set. Image id % `test_every` == 0 is used as test set. `test_after` must be -1 when using `test_every`.
+- `test_after`: Indicates which image to use as test set. Image id > `test_after` is used as test set. `test_every` must be -1 when using `test_after`.
+
+
 ## Acknowledgment
 This repository is built on [gsplat](https://github.com/nerfstudio-project/gsplat.git) library.
 
